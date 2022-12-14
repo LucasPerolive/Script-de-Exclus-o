@@ -20,7 +20,7 @@ echo "A hora esta correta $hora ? S ou N:"
 $horario = Read-Host
 
 #Confere se a data  e hora estao corretas
-if ($opcao -eq "S" -or $opcao -eq "s" -and $horario -eq "S" -or $horario -eq "s") {
+if ($opcao -eq "S" -and $horario -eq "s") {
 
 # Definir o diretorio e tipo de arquivo
 $diretorio = Read-Host "Diretorio desejado"
