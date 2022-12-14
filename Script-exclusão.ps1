@@ -32,10 +32,11 @@ if($tipo -eq "A" -or $tipo -eq "a"){
 
 #Definir a extensao do arquivo
 $extensao = Read-Host "Extensao do arquivo"
-#Filtra para ser apenas a extensao desejada
-Get-childItem $diretorio -Filter "*$extensao" -Recurse |
+Get-childItem $diretorio -Recurse |
 #Proucra pela data e hora
 Where-Object LastWriteTime -like "$dia *$hora*" |
+#Filtra para ser apenas a extensao desejada
+Get-ChildItem -Filter "$extensao" |
 #Exclui os objetos
 Select-Object $nameExpr
 echo "FEITO."
