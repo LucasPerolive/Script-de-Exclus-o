@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop"
+
 #Define um hashtable, uma estrutura de dados para mapear chaves exclusivas para valores
 $nameExpr = @{
 	Label="Feito";
