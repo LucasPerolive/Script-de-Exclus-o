@@ -10,11 +10,11 @@ echo "Caso não queira especificar a data, hora ou extensao de arquivo digite (*
 
 #Definir a data e hora
 echo "Digite a data no formato MM/DD/AAAA com as '/'"
-$dia = Read-Host 
-echo "A data esta correta $dia ? S ou N:"
+$data = Read-Host 
+echo "A data esta correta $data ? S ou N:"
 $opcao = Read-Host
 
-echo "Digite a hora no formato HH:DD"
+echo "Digite a hora no formato HH:MM"
 $hora = Read-Host 
 echo "A hora esta correta $hora ? S ou N:"
 $horario = Read-Host
@@ -34,7 +34,7 @@ if($tipo -eq "A" -or $tipo -eq "a"){
 $extensao = Read-Host "Extensao do arquivo"
 Get-childItem $diretorio -Recurse |
 #Proucra pela data e hora
-Where-Object LastWriteTime -like "$dia *$hora*" |
+Where-Object LastWriteTime -like "$data *$hora*" |
 #Filtra para ser apenas a extensao desejada
 Get-ChildItem -Filter "$extensao" |
 #Exclui os objetos
@@ -47,7 +47,7 @@ if($tipo -eq "P" -or $tipo -eq "p"){
 
 #A diferenaca deste para o de arquivos e que ele passa por duas pesquisa de criterios um para dia e hora e outra para ver se ele é um diretorio
 Get-childItem $diretorio -Recurse |
-Where-Object LastWriteTime -like "$dia *$hora*" |
+Where-Object LastWriteTime -like "$data *$hora*" |
 Select-Object Name ,mode|
 Where-Object Mode -like "d-*"|
 Select-Object $nameExpr
